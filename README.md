@@ -38,33 +38,17 @@ cleint :
 
 
     structure :
-
-                ndader_shop/
-                │
+                OpticStore
+                ├── README.md
+                ├── data
+                │   └── produits.json
                 ├── main.py
-                │
-                ├── auth.py
-                ├── admin.py
-                ├── client.py
-                │
-                ├── stock.py
-                ├── commandes.py
-                ├── statistiques.py
-                │
-                ├── produits.json
-                ├── commandes.json
-                ├── users.json
-                │
-                └── stats.txt
-
-
-
-
-                main.py      → تشغيل البرنامج
-                auth.py      → login
-                admin.py     → menu admin
-                client.py    → menu client
-
-                stock.py     → produits / stock
-                commandes.py → commandes
-                statistiques.py → stats
+                ├── models
+                │   ├── admin.py
+                │   ├── client.py
+                │   └── produit.py
+                ├── services
+                │   ├── auth.py
+                │   └── store.py
+                └── utils
+                    └── menu.py
