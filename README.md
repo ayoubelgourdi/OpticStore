@@ -52,3 +52,17 @@ cleint :
                 │   └── store.py
                 └── utils
                     └── menu.py
+
+
+                
+        main.py
+        |
+        |---- menu
+        |
+        |---- auth
+        |
+        |---- store
+                |
+                |---- models (Produit / Client)
+                |
+                |---- data (json)
