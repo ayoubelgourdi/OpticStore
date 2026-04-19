@@ -4,6 +4,9 @@ class Produit:
         self.couleur = couleur
         self.price = price
         self.__stock = stock
+
+    def get_stock(self):
+        return self.__stock
         
     def get_produit(self):
         return f"> Modele : {self.modele} | Couleur : {self.couleur} | Price : {self.price}"
@@ -13,7 +16,6 @@ class Produit:
             self.__stock -= quantity
             return True
         else:
-            print("> not enough stock :(")
             return False
 
     def add_stocj(self,quantity):
