@@ -8,16 +8,19 @@ class Store:
 
     def check_list(self):
         if not self.products:
-            return f"> No products available in the store"
+            print("> No products available in the store")
+            return True
+
 
     def add_product(self,product):
         self.products.append(product)
 
     def show_products(self):
-        self.check_list
+        if self.check_list() == True:
+            return "> No products available in the store"
         
         for i in self.products:
-            return i.get_produit()
+            print(i.get_produit())
         
     def delete_product(self,indix):
         self.show_products()
@@ -31,14 +34,15 @@ class Store:
             if modele == i.modele:
                 return i.get_produit()
             
-            return f"> product not found :("
+        return f"> product not found :("
         
-    def sell_product(self,quantity):
-        if Produit.remove_stock(quantity)  == True:
-            Produit.remove_stock(quantity)
-        
-        else:
-            return f"> not enough stock :("
+    def sell_product(self,modele,quantity):
+        for i in self.products:
+            if i.modele  == modele:
+                i.remove_stock(quantity)
+                return True
+
+        return False
         
 
     def load_products(self):
@@ -46,7 +50,7 @@ class Store:
             with open("/home/ayoub/OpticStore/data/produits.json","r") as F:
                 self.data = json.load(F)
 
-            self.produits = []
+            self.products = []
 
             for i in self.data:
                 self.products.append(Produit(
@@ -55,7 +59,7 @@ class Store:
                     i["price"],
                     i["stock"]
                 ))
-                return "> products loaded successfully"
+            return "> products loaded successfully"
 
         except FileNotFoundError:
             return "> products file not found"
@@ -63,7 +67,7 @@ class Store:
     def save_products(self):
         self.products_data = []
 
-        for i in self.produits:
+        for i in self.products:
             p_dict = {
                 "modele": i.modele,
                 "couleur": i.couleur,
@@ -75,3 +79,26 @@ class Store:
 
         with open("/home/ayoub/OpticStore/data/produits.json","w") as F:
             json.dump(self.products_data, F, indent=4)
+
+    def update_stock(self,modele, quantity):
+        for i in self.products:
+            if i.modele == modele:
+                while True:
+                    print("===menu===")
+                    print("1 - add")
+                    print("2 - remove")
+
+                    choose = input("enter choose : ")
+
+                    if choose == "1":
+                        i.add_stock(quantity)
+                        return "> stock updated"
+                        
+
+                    elif choose == "2":
+                        i.remove_stock(quantity)
+                        return "> stock updated"
+
+        
+        return "> product not found"
+

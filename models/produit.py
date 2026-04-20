@@ -12,14 +12,20 @@ class Produit:
         return f"> Modele : {self.modele} | Couleur : {self.couleur} | Price : {self.price}"
     
     def remove_stock(self,quantity):
-        if self.can_sell(quantity) == True:
-            self.__stock -= quantity
-            return True
+        if quantity <= 0:
+            return "> quantity not valide !"
         else:
-            return False
+            if self.can_sell(quantity) == True:
+                self.__stock -= quantity
+                return True
+            else:
+                return False
 
-    def add_stocj(self,quantity):
-        self.__stock += quantity
+    def add_stock(self,quantity):
+        if quantity <= 0:
+            return "> quantity not valide !"
+        else:
+            self.__stock += quantity
 
     def can_sell(self,quantity):
         if quantity <= self.__stock:

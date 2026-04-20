@@ -1,5 +1,9 @@
 from models.client import Client
 from models.admin import Admin
+from utils.validation import v_username
+from utils.validation import v_password
+from utils.validation import v_price
+from utils.validation import v_quantity
 import json
 
 class Auth:
@@ -13,18 +17,22 @@ class Auth:
         while True:
             self.username = input("enter username : ")
 
-            if self.username != "" and not " " in self.username:
+            if not v_username(self.username):
+                print("> invalid username")
+                
+            else:
+                print("> username valide ")
                 break
-
-            return "> username not valide !"
 
         while True:
             self.password = input("enter password : ")
 
-            if self.password != "" and not " " in self.password:
-                break
+            if not v_password(self.password):
+                print("> invalid password ")
 
-            return "> password not valide !"
+            else:
+                print("> password valide ")
+                break
     
         for i in self.data_clients:
             if i["username"] == self.username and i["password"] == self.password:
@@ -37,18 +45,22 @@ class Auth:
         while True:
             self.username = input("enter username : ")
 
-            if self.username != "" and " " not in self.username:
+            if not v_username(self.username):
+                print("> invalid username")
+                
+            else:
+                print("> username valide ")
                 break
-
-            print("> username not valide !")
 
         while True:
             self.password = input("enter password : ")
 
-            if self.password != "" and " " not in self.password:
+            if not v_password(self.password):
+                print("> invalid password ")
+
+            else:
+                print("> password valide ")
                 break
-            
-            print("> password not valide !")
 
         new_client = {
             "username": self.username,
@@ -68,18 +80,22 @@ class Auth:
         while True:
             self.username = input("enter username : ")
 
-            if self.username != "" and not " " in self.username:
+            if not v_username(self.username):
+                print("> invalid username")
+                
+            else:
+                print("> username valide ")
                 break
-
-            return "> username not valide !"
 
         while True:
             self.password = input("enter password : ")
 
-            if self.password != "" and not " " in self.password:
-                break
+            if not v_password(self.password):
+                print("> invalid password ")
 
-            return "> password not valide !"
+            else:
+                print("> password valide ")
+                break
         
         if self.username == "admin" and self.password == "admin":
             return Admin(self.username, self.password)

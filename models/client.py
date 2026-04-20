@@ -10,7 +10,7 @@ class Client:
         self.panier.append((produit,quantity))
 
     def remove_from_cart(self,indix):
-        self.show_cart()
+        
         self.panier.pop(indix)
 
     def show_cart(self):

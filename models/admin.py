@@ -1,3 +1,5 @@
+from services.store import Store
+
 class Admin:
     def __init__(self):
         self.__usernam = "admin"
@@ -10,15 +12,12 @@ class Admin:
             return False
         
     def add_product(self,modele,couleur,price,stock):
-        # store.add_product()
-        ...
+        self.store.add_product(modele,couleur,price,stock)
 
-    def remove_product(self):
-        # store.add_product()
-        ...
+    def remove_product(self,indix):
+        self.store.delete_product(indix)
 
-    def update_stock(self):
-        # store.update_stock()
-        ...
+    def update_stock(self,quantity):
+        self.store.sell_product(quantity)
 
     
