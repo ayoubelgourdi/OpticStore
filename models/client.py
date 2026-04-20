@@ -1,4 +1,4 @@
-from produit import Produit
+from models.produit import Produit
 
 class Client:
     def __init__(self,usernam,password):

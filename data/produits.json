@@ -1,14 +1,14 @@
 [
-  {
-    "modele": "RayBan",
-    "couleur": "black",
-    "price": 120,
-    "stock": 10
-  },
-  {
-    "modele": "Oakley",
-    "couleur": "blue",
-    "price": 95,
-    "stock": 5
-  }
+    {
+        "modele": "RayBan",
+        "couleur": "black",
+        "price": 120,
+        "stock": 10
+    },
+    {
+        "modele": "Oakley",
+        "couleur": "blue",
+        "price": 95,
+        "stock": 5
+    }
 ]

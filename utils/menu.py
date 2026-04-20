@@ -1,11 +1,11 @@
-from utils.menu import Auth
+from services.auth import Auth
 from services.store import Store
 from models.produit import Produit
 from models.client import Client
 from utils.validation import v_price
 from utils.validation import v_quantity
 
-class menu:
+class Menu:
     def menu_principal(self):
         while True:
             print("===== OPTIC STORE =====")

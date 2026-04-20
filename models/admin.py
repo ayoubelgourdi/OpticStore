@@ -19,5 +19,3 @@ class Admin:
 
     def update_stock(self,quantity):
         self.store.sell_product(quantity)
-
-    
