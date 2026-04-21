@@ -29,7 +29,7 @@ def main():
                 menu_app.client = client
                 menu_app.menu_client()
             else:
-                print("> Login failed")
+                print("> Incorrect username or password")
 
         elif choice == "2":
 

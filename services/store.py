@@ -19,11 +19,13 @@ class Store:
         if self.check_list() == True:
             return "> No products available in the store"
         
+        a = 0
         for i in self.products:
-            print(i.get_produit())
+            print(f"{a} | {i.get_produit()}")
+            a += 1
         
     def delete_product(self,indix):
-        self.show_products()
+        # self.show_products()
 
         self.products.pop(indix)
 

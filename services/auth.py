@@ -43,13 +43,23 @@ class Auth:
     def register_client(self):
 
         while True:
+            a = True
             self.username = input("enter username : ")
 
             if not v_username(self.username):
                 print("> invalid username")
+                a = False
                 
-            else:
-                print("> username valide ")
+            
+            with open("/home/ayoub/OpticStore/data/clients.json","r") as F:
+                data = json.load(F)
+
+            for i in data:
+                if i["username"] == self.username:
+                    print("> username already exists")
+                    a = False
+                    
+            if a == True:
                 break
 
         while True:

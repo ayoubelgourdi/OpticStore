@@ -1,32 +1,20 @@
 [
-  {
-    "modele": "RAYBAN CLASSIC",
-    "couleur": "Black",
-    "price": 120,
-    "stock": 10
-  },
-  {
-    "modele": "OAKLEY SPORT",
-    "couleur": "Blue",
-    "price": 150,
-    "stock": 8
-  },
-  {
-    "modele": "GUCCI EYEWEAR",
-    "couleur": "Brown",
-    "price": 300,
-    "stock": 5
-  },
-  {
-    "modele": "DIOR LUXE",
-    "couleur": "Gold",
-    "price": 450,
-    "stock": 3
-  },
-  {
-    "modele": "PRADA VISION",
-    "couleur": "Silver",
-    "price": 250,
-    "stock": 7
-  }
+    {
+        "modele": "RAYBAN CLASSIC",
+        "couleur": "Black",
+        "price": 120,
+        "stock": 10
+    },
+    {
+        "modele": "GUCCI EYEWEAR",
+        "couleur": "Brown",
+        "price": 300,
+        "stock": 5
+    },
+    {
+        "modele": "DIOR LUXE",
+        "couleur": "Gold",
+        "price": 450,
+        "stock": 0
+    }
 ]
