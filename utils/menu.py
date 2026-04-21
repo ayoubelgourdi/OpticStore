@@ -5,33 +5,19 @@ from models.client import Client
 from utils.validation import v_price
 from utils.validation import v_quantity
 
-class Menu:
-    def menu_principal(self):
-        while True:
-            print("===== OPTIC STORE =====")
-            print("1 - Login Client")
-            print("2 - Register Client")
-            print("3 - Login Admin")
-            print("4 - Exit")
-            choose = input("> Choose option : ")
 
-            if choose == "1":
-                self.login_client()
+class menu:
 
-            elif choose == "2":
-                self.register_client()
+    def __init__(self, store):
+        self.store = store
+        self.client = None
+        self.admin = None
 
-            elif choose == "3":
-                self.login_admin()
 
-            elif choose == "4":
-                break
-            
-            else:
-                print("choose not valide !")
-        
     def menu_admin(self):
+
         while True:
+
             print("===== ADMIN MENU =====")
             print("1 - Add product")
             print("2 - Show products")
@@ -39,12 +25,16 @@ class Menu:
             print("4 - Update stock")
             print("5 - Save data")
             print("6 - Logout")
+
             choose = input("> Choose option : ")
 
             if choose == "1":
-                modele = input("enter modele : ")
+
+                modele = input("enter modele : ").upper()
                 couleur = input("enter couleur : ")
+
                 while True:
+
                     price = input("enter price : ")
 
                     if not v_price(price):
@@ -53,6 +43,7 @@ class Menu:
                         break
 
                 while True:
+
                     stock = input("enter stock : ")
 
                     if not v_quantity(stock):
@@ -60,41 +51,58 @@ class Menu:
                     else:
                         break
 
-                object = Produit(modele,couleur,price,stock)
-                self.add_product(object)
+                product = Produit(modele, couleur, float(price), int(stock))
+
+                self.store.add_product(product)
+
 
             elif choose == "2":
-                self.show_products()
 
-                self.save_products()
+                self.store.show_products()
+
+
             elif choose == "3":
-                self.show_products()
-                index = int(input("enter index : "))
 
-                self.delete_product(index)
-                
-                self.save_products()
+                self.store.show_products()
+
+                indix = int(input("enter index : "))
+
+                self.store.delete_product(indix)
+
+
             elif choose == "4":
-                self.show_products()
-                modele = input("enter modele")
+
+                self.store.show_products()
+
+                modele = input("enter modele : ").upper()
+
                 while True:
-                    quantity = int(input("enter quantity : "))
+
+                    quantity = input("enter quantity : ")
+
                     if not v_quantity(quantity):
                         print("> invalide quantity ")
                     else:
                         break
 
-                self.update_stock(modele, quantity)
+                self.store.update_stock(modele, int(quantity))
 
-                self.save_products()
+
             elif choose == "5":
-                self.save_products()
-                
+
+                self.store.save_products()
+
+
             elif choose == "6":
+
                 break
-        
+
+
+
     def menu_client(self):
+
         while True:
+
             print("===== CLIENT MENU =====")
             print("1 - Show Products")
             print("2 - Add Product To Cart")
@@ -102,37 +110,55 @@ class Menu:
             print("4 - Remove From Cart")
             print("5 - Checkout")
             print("6 - Logout")
+
             choose = input("> Choose option : ")
 
-            if choose =="1":
-                self.show_products()
+            if choose == "1":
+
+                self.store.show_products()
+
 
             elif choose == "2":
-                modele = input("enter modele : ")
+
+                modele = input("enter modele : ").upper()
 
                 while True:
-                    quantity = int(input("enter quantity : "))
+
+                    quantity = input("enter quantity : ")
+
                     if not v_quantity(quantity):
                         print("> invalide quantity ")
                     else:
                         break
 
-                    for i in self.store.products:
-                        if i.modele == modele:
-                            self.add_to_cart(i,quantity)
+                quantity = int(quantity)
+
+                for i in self.store.products:
+
+                    if i.modele == modele:
+                        self.client.add_to_cart(i, quantity)
+
 
             elif choose == "3":
-                self.show_cart()
-            
-            elif choose == "4":
-                self.show_cart()
 
-                index = int(input("enter index : "))
-                self.remove_from_cart(index)
+                print(self.client.show_cart())
+
+
+            elif choose == "4":
+
+                self.client.show_cart()
+
+                indix = int(input("enter index : "))
+
+                self.client.remove_from_cart(indix)
+
 
             elif choose == "5":
-                self.checkout()
+
+                print(self.client.checkout())
+                self.store.save_products()
+
 
             elif choose == "6":
+
                 break
-            

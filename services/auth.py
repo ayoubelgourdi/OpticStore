@@ -98,4 +98,4 @@ class Auth:
                 break
         
         if self.username == "admin" and self.password == "admin":
-            return Admin(self.username, self.password)
+            return Admin()

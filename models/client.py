@@ -10,7 +10,12 @@ class Client:
         self.panier.append((produit,quantity))
 
     def remove_from_cart(self,indix):
+        self.show_cart()
         
+        if indix < 0 or indix >= len(self.panier):
+            print("> invalide index")
+            return
+
         self.panier.pop(indix)
 
     def show_cart(self):

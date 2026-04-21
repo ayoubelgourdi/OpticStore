@@ -1,6 +1,6 @@
 class Produit:
     def __init__(self,modele,couleur,price,stock):
-        self.modele = modele
+        self.modele = modele.upper()
         self.couleur = couleur
         self.price = price
         self.__stock = stock

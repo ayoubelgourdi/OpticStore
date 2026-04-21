@@ -38,7 +38,7 @@ class Store:
         
     def sell_product(self,modele,quantity):
         for i in self.products:
-            if i.modele  == modele:
+            if i.modele  == modele.upper():
                 i.remove_stock(quantity)
                 return True
 
