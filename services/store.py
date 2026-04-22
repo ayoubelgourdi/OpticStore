@@ -49,7 +49,7 @@ class Store:
 
     def load_products(self):
         try:
-            with open("/home/ayoub/OpticStore/data/produits.json","r") as F:
+            with open("data/produits.json","r") as F:
                 self.data = json.load(F)
 
             self.products = []
@@ -79,7 +79,7 @@ class Store:
 
             self.products_data.append(p_dict)
 
-        with open("/home/ayoub/OpticStore/data/produits.json","w") as F:
+        with open("data/produits.json","w") as F:
             json.dump(self.products_data, F, indent=4)
 
     def update_stock(self,modele, quantity):

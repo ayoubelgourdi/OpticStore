@@ -8,7 +8,7 @@ import json
 
 class Auth:
     def load_clients(self):
-        with open("/home/ayoub/OpticStore/data/clients.json","r") as F:
+        with open("data/clients.json","r") as F:
             self.data_clients = json.load(F)
 
     def login_client(self):
@@ -51,7 +51,7 @@ class Auth:
                 a = False
                 
             
-            with open("/home/ayoub/OpticStore/data/clients.json","r") as F:
+            with open("data/clients.json","r") as F:
                 data = json.load(F)
 
             for i in data:
@@ -77,12 +77,12 @@ class Auth:
             "password": self.password
         }
 
-        with open("/home/ayoub/OpticStore/data/clients.json","r") as F:
+        with open("data/clients.json","r") as F:
             data = json.load(F)
 
         data.append(new_client)
 
-        with open("/home/ayoub/OpticStore/data/clients.json","w") as F:
+        with open("data/clients.json","w") as F:
             json.dump(data, F, indent=4)
 
     def login_admin(self):
