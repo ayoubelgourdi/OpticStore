@@ -62,13 +62,13 @@ OpticStore/
 1. Clone the project
 
 ```bash
-git clone https://github.com/yourusername/optic-store.git
+git clone https://github.com/ayoubelgourdi/OpticStore.git
 ```
 
 2. Go to project folder
 
 ```bash
-cd optic-store
+cd OpticStore
 ```
 
 3. Run the program
